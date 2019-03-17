@@ -1,0 +1,17 @@
+{% extends 'layout/app.twig' %}
+
+{% block content %}
+    <h3>Users</h3>
+    <hr>
+    {% if users is not empty %}
+        {% for user in users %}
+            <div class="user">
+                <h4>{{ user.title }} ({{ user.catagory }})</h4>
+            </div>
+        {% endfor %}
+
+        {{ users.links | raw }}
+    {% else %}
+        <p>No users</p>
+    {% endif %}
+{% endblock %}

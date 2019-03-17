@@ -1,0 +1,38 @@
+{% extends "template/app.twig" %}
+
+{% block content %}
+          <div class="row">
+              <div class="col-sm"></div>
+              <div class="col-sm">
+                    <div class="card" style="width: 18rem;">
+                            <div class="card-header">
+                                Change Password
+                            </div>
+
+                                <form action="{{ path_for('auth.password.change') }}" method="post" autocomplete="off">
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="password_old" placeholder="Enter Current Password">
+                                        {% if errors.password_old %}
+                                            <div class="alert alert-danger" role="alert">
+                                                    <p>{{ errors.password_old | first }}</p>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="password" placeholder="Enter New Password">
+                                        {% if errors.password %}
+                                            <div class="alert alert-danger" role="alert">
+                                                    <p>{{ errors.password | first }}</p>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-success btn-block" value="Change Password">
+                                    </div>
+                                {{csrf.field | raw}}
+                            </form>
+                          </div>
+              </div>
+              <div class="col"></div>
+          </div>
+{% endblock %}

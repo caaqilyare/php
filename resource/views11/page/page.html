@@ -1,0 +1,11 @@
+{% if users is not empty %}
+{% for user in users %}
+    <div class="user">
+        <h4>{{ user.name }} ({{ user.serail }})</h4>
+    </div>
+{% endfor %}
+
+{{ users.links | raw }}
+{% else %}
+<p>No users</p>
+{% endif %}
